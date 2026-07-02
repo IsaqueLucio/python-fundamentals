@@ -11,3 +11,28 @@ Rules:
 6. Print the final state of the 'inventory' dictionary.
 """
 
+inventory = {"laptops": 10, "mice": 50, "keyboards": 25}
+sold_items = {}
+failed_sale = {}
+
+inventory["laptops"] = inventory["laptops"] + 5
+
+def buy_items(item, num):
+    if item not in inventory:
+        failed_sale.update({item: 0})
+        print(f"The item {item} was not found in the inventory.")
+    elif inventory[item] < num:
+        print(f"Insufficient quantity, there just {inventory[item]} available.")
+    elif inventory[item] == num:
+        print(f"Sucess! All unities of {item} solded.")
+        sold_items[item] = num
+        inventory.pop(item, num)
+    else:
+        inventory[item] = inventory[item] - num
+        print(f"Sucess! {num} of {item} solded, the current available quantity is {inventory[item]}")
+
+buy_items("keyboards",25)
+buy_items("monitor",10)
+print(f"Keyboards sold: {sold_items} | Monitors sold: {failed_sale}")
+print(inventory)
+

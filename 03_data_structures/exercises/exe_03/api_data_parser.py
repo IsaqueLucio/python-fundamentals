@@ -11,3 +11,10 @@ Rules:
 4. After the loop, extract ONLY the keys into a list using .keys() and print that list.
 """
 
+weather_data = {"city": "Lisbon", "temperature": 22.5, "humidity": 60, "condition": "Sunny"}
+
+for key, value in weather_data.items():
+    print(f"- {key.capitalize()}: {value}")
+
+weather_data_keys = list(weather_data.keys())
+print(weather_data_keys)
