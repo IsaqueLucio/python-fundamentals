@@ -17,3 +17,21 @@ Rules:
    - If it's not, add the email to 'seen_emails' and append the user dictionary to 'clean_users'.
 5. Print the final 'clean_users' list.
 """
+
+raw_users = [
+       {"id": 1, "email": "alice@test.com"},
+       {"id": 2, "email": "bob@test.com"},
+       {"id": 3, "email": "alice@test.com"},
+       {"id": 4, "email": "charlie@test.com"}
+   ]
+
+seen_emails = set()
+clean_users = []
+
+
+for item in raw_users:
+   if item["email"] not in seen_emails:
+      seen_emails.add(item["email"])
+      clean_users.append(item)
+
+print(clean_users)

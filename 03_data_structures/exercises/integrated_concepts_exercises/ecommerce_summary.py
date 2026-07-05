@@ -18,3 +18,22 @@ Rules:
 7. Print the final 'client_totals' dictionary (Expected: Alice should have 4 items).
 """
 
+orders = [
+       (101, "Alice", ["Laptop", "Mouse"]),
+       (102, "Bob", ["Keyboard"]),
+       (103, "Alice", ["Monitor", "Cable"]),
+       (104, "Charlie", ["Desk"])
+   ]
+
+client_totals = {}
+
+for order_id, client_name, items_list in orders:
+
+    total_items = len(items_list)
+    
+    if client_name not in client_totals:
+        client_totals[client_name] = total_items
+    else:
+         client_totals[client_name] += total_items
+
+print(client_totals)

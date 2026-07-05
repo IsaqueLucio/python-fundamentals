@@ -20,3 +20,21 @@ Rules:
    "Event: [name] | Total No-shows: [number_of_no_shows] | Missing: [no_shows_set]"
 """
 
+event_data = {
+       "event_name": "Python Conference",
+       "registered_emails": {"alice@email.com", "bob@email.com", "charlie@email.com", "diana@email.com"},
+       "actual_checkins": [
+           ("alice@email.com", "09:00 AM"),
+           ("charlie@email.com", "09:15 AM")
+       ]
+   }
+
+registred_emails = set(event_data["registered_emails"])
+checked_emails = event_data["actual_checkins"]
+emails_checked = set()
+
+for email , hour in checked_emails:
+   emails_checked.add(email)
+
+no_shows = registred_emails.difference(emails_checked)
+print(f"Event: {event_data['event_name']} | Total No-shows: {len(no_shows)} | Missing: {no_shows}")

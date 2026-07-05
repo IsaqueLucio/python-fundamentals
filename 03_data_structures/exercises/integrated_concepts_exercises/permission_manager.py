@@ -14,3 +14,16 @@ Rules:
 4. Use Set operations to find permissions that the 'admin' has but the 'editor' DOES NOT have (difference). Print it.
 """
 
+system_roles = {
+       "admin": ("read", "write", "delete", "invite"),
+       "editor": ("read", "write", "publish"),
+       "viewer": ("read",)
+   }
+
+admin = set(system_roles["admin"])
+editor = set(system_roles["editor"])
+common_ad_ed = admin.intersection(editor)
+ad_ed = admin.difference(editor)
+
+print(f"The common permissions between 'admin' and 'editor' are {common_ad_ed}.")
+print(f"Permissions that the 'admin' has but the 'editor' DOES NOT have are {ad_ed}")
