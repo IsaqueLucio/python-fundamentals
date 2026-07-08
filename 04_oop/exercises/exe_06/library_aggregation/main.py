@@ -23,3 +23,17 @@ Dependencies to create in the same folder: book.py, library.py
 5. Call the 'show_books()' method on the library.
 """
 
+from book import Book
+from library import Library
+
+book_01 = Book("Harry Potter", "J.K Rowling")
+book_02 = Book("Lord of the Ring", "J.R.R Tolkien")
+book_03 = Book("The Witcher", "Andrzej Sapkowski")
+
+library = Library("Biblioteca")
+
+library.add_book(book_01)
+library.add_book(book_02)
+library.add_book(book_03)
+
+library.show_books()
