@@ -1,0 +1,3 @@
+Day 1: Started learning Context Managers.
+Day 2: Mastered the 'with' syntax.
+Day 3: Built secure file paths!
