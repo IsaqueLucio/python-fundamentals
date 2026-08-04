@@ -1,61 +1,58 @@
 """
-Python Core - 06 Bibliotecas
-Módulo: numpy
-Arquivo: 04_statistics_and_aggregation.py
-Descrição: Métricas estatísticas avançadas, percentis, busca de índices e agregações seguras.
+Python Core - 06 Libraries
+Module: numpy
+File: 04_statistics_and_aggregation.py
+Description: Advanced statistical metrics, percentiles, index hunting, and safe aggregations.
 """
 import numpy as np
 
-print("--- 1. Métricas Estatísticas Básicas ---")
-# O NumPy fornece funções altamente otimizadas, baseadas em C, para estatísticas padrão.
+print("--- 1. Basic Statistical Metrics ---")
+# NumPy provides highly optimized C-based functions for standard statistics.
 revenue = np.array([1200, 1500, 800, 2200, 3100, 1500, 950])
 
-print(f"Receita Total (Soma):       {np.sum(revenue)}")
-print(f"Receita Média (Média):      {np.mean(revenue):.2f}")
-print(f"Receita Mediana (Mediana):  {np.median(revenue)}")
-# O Desvio Padrão mede o quanto os números estão dispersos em relação à média
-print(f"Desvio Padrão (Std):        {np.std(revenue):.2f}")
-print(f"Variância (Var):            {np.var(revenue):.2f}")
+print(f"Total Revenue (Sum):      {np.sum(revenue)}")
+print(f"Average Revenue (Mean):   {np.mean(revenue):.2f}")
+print(f"Median Revenue (Median):  {np.median(revenue)}")
+# Standard Deviation measures how spread out the numbers are from the mean
+print(f"Standard Deviation (Std): {np.std(revenue):.2f}")
+print(f"Variance (Var):           {np.var(revenue):.2f}")
 print("\n" + "="*60 + "\n")
 
 
-print("--- 2. Percentis e Quartis ---")
-# Os percentis informam o valor abaixo do qual está uma determinada porcentagem das observações.
-# São ótimos para encontrar valores discrepantes (outliers) ou definir limites
-# (por exemplo, "os 10% melhores").
-print(f"Percentil 25% (Q1): {np.percentile(revenue, 25)}")
-print(f"Percentil 75% (Q3): {np.percentile(revenue, 75)}")
-# O percentil 90 significa que 90% dos dados estão abaixo desse valor
-print(f"Percentil 90%:      {np.percentile(revenue, 90)}")
+print("--- 2. Percentiles and Quartiles ---")
+# Percentiles tell you the value below which a given percentage of observations fall.
+# Great for finding outliers or defining thresholds (e.g., "Top 10%").
+print(f"25th Percentile (Q1): {np.percentile(revenue, 25)}")
+print(f"75th Percentile (Q3): {np.percentile(revenue, 75)}")
+# The 90th percentile means 90% of the data is below this value
+print(f"90th Percentile:      {np.percentile(revenue, 90)}")
 print("\n" + "="*60 + "\n")
 
 
-print("--- 3. Caçadores de Índices (argmax e argmin) ---")
-# Às vezes, encontrar o valor máximo não é suficiente; você precisa saber ONDE ele está.
-# argmax() retorna o ÍNDICE do maior valor.
+print("--- 3. Index Hunters (argmax & argmin) ---")
+# Sometimes finding the maximum value isn't enough; you need to know WHERE it is.
+# argmax() returns the INDEX of the maximum value.
 max_value = np.max(revenue)
 best_month_index = np.argmax(revenue)
 
-months = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul"]
+months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"]
 
-print(f"A maior receita foi {max_value}.")
-print(f"Ela aconteceu no índice {best_month_index}, que corresponde a {months[best_month_index]}.")
+print(f"Highest Revenue was {max_value}.")
+print(f"It happened at index {best_month_index}, which is {months[best_month_index]}.")
 
 worst_month_index = np.argmin(revenue)
-print(f"A menor receita foi {np.min(revenue)} em {months[worst_month_index]}.")
+print(f"Lowest Revenue was {np.min(revenue)} in {months[worst_month_index]}.")
 print("\n" + "="*60 + "\n")
 
 
-print("--- 4. Agregações Seguras (Lidando com NaNs) ---")
-# Dados reais são desorganizados. np.nan (Not a Number / Não é um Número)
-# representa dados ausentes em arrays numéricos.
+print("--- 4. Safe Aggregations (Handling NaNs) ---")
+# Real data is messy. np.nan (Not a Number) represents missing data in numeric arrays.
 corrupted_sensor_data = np.array([22.5, 23.1, np.nan, 22.8, np.nan, 24.0])
 
-# As funções matemáticas normais FALHAM (retornam NaN) se houver até mesmo um único NaN no array!
-print(f"Média Normal (Falha): {np.mean(corrupted_sensor_data)}")
+# Normal math functions CRASH (return NaN) if there is even a single NaN in the array!
+print(f"Normal Mean (Fails): {np.mean(corrupted_sensor_data)}")
 
-# A família de funções 'nan-' ignora os NaNs automaticamente.
-print(f"Média Segura (nanmean): {np.nanmean(corrupted_sensor_data):.2f}")
-print(f"Soma Segura (nansum):   {np.nansum(corrupted_sensor_data):.2f}")
-print(f"Máximo Seguro (nanmax): {np.nanmax(corrupted_sensor_data)}")
-
+# The 'nan-' family of functions ignores NaNs automatically.
+print(f"Safe Mean (nanmean): {np.nanmean(corrupted_sensor_data):.2f}")
+print(f"Safe Sum (nansum):   {np.nansum(corrupted_sensor_data):.2f}")
+print(f"Safe Max (nanmax):   {np.nanmax(corrupted_sensor_data)}")
