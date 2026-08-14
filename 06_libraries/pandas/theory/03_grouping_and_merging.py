@@ -7,7 +7,7 @@ Description: Mastering groupby aggregations, multiple metrics, and SQL-like tabl
 import pandas as pd
 
 print("--- 1. Data Aggregation (Group By) ---")
-# Um log de vendas contendo múltiplas transações de diferentes funcionários
+# A sales record containing multiple transactions from different employees
 sales_data = {
     "Employee":   ["Alice", "Bob", "Alice", "Charlie", "Bob", "Alice"],
     "Department": ["HR", "Sales", "HR", "IT", "Sales", "HR"],
@@ -15,13 +15,13 @@ sales_data = {
 }
 df_sales = pd.DataFrame(sales_data)
 
-# Objetivo: Qual é a receita total por funcionário?
-# O .groupby() agrupa as linhas iguais, e o .sum() soma os valores numéricos.
+# Goal: What is the total revenue per employee?
+# .groupby() groups identical rows, and .sum() sums the numeric values.
 revenue_per_employee = df_sales.groupby("Employee")["Revenue"].sum()
 print("Total Revenue by Employee:")
 print(revenue_per_employee)
 
-# Agregações complexas usando .agg() para obter múltiplas métricas de uma vez
+# Complex aggregations using .agg() to get multiple metrics at once
 department_metrics = df_sales.groupby("Department").agg({
     "Revenue": ["sum", "mean", "count"]
 })
@@ -31,7 +31,7 @@ print("\n" + "="*60 + "\n")
 
 
 print("--- 2. Joining Tables (Merge) ---")
-# Tabela 1: Informações de cadastro dos usuários
+# Table 1: User registration information
 users_data = {
     "UserID": [1, 2, 3, 4],
     "Name": ["Alice", "Bob", "Charlie", "Diana"],
@@ -39,20 +39,20 @@ users_data = {
 }
 df_users = pd.DataFrame(users_data)
 
-# Tabela 2: Histórico de transações (note que Diana não tem transações e Eve não tem cadastro)
+# Table 2: Transaction history (note that Diana has no transactions and Eve has no registration)
 transactions_data = {
     "TransactionID": [101, 102, 103, 104],
-    "UserID": [1, 2, 2, 5], 
+    "UserID": [1, 2, 2, 5],
     "Amount": [250.0, 150.0, 300.0, 90.0]
 }
 df_transactions = pd.DataFrame(transactions_data)
 
-# INNER JOIN (Padrão): Mantém apenas os registros que existem em AMBAS as tabelas.
+# INNER JOIN (Default): Keeps only the records that exist in BOTH tables.
 inner_join = pd.merge(df_users, df_transactions, on="UserID", how="inner")
 print("Inner Join (Only matching users and transactions):")
 print(inner_join)
 
-# LEFT JOIN: Mantém TODOS os usuários da tabela da esquerda, mesmo sem transações (preenche com NaN).
+# LEFT JOIN: Keeps ALL users from the left table, even without transactions (fills with NaN).
 left_join = pd.merge(df_users, df_transactions, on="UserID", how="left")
 print("\nLeft Join (All users, NaN for missing transactions):")
 print(left_join)
