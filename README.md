@@ -1,8 +1,8 @@
-# Python Core & OOP Fundamentals 🐍
+# Python Core & OOP Fundamentals
 
 Welcome to my Python development portfolio. This repository contains a comprehensive learning journey through Python, from fundamental syntax to advanced concepts and real-world applications. It's designed to build a solid foundation in Python programming, data structures, and Object-Oriented Programming (OOP) principles.
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 PythonCore/
@@ -13,11 +13,10 @@ PythonCore/
 ├── 05_advanced/               # Advanced Python topics
 ├── 06_libraries/              # Popular Python libraries and tools
 ├── 07_projects/               # Practical projects and applications
-├── 08_challenges/             # Coding challenges and logic problems
-└── 09_notes/                  # Study notes and summaries
+└── 08_challenges/             # Coding challenges and logic problems
 ```
 
-## 🎯 Learning Path
+## Learning Path
 
 ### 01_basics/
 Foundation of Python programming including:
@@ -59,8 +58,9 @@ Advanced Python concepts:
 Popular Python libraries:
 * **requests** - HTTP requests and API interactions
 * **pandas** - Data manipulation and analysis
-* **matplotlib** - Data visualization
 * **numpy** - Numerical computing
+* **fastapi** - Backend API framework
+* **django** - Web framework
 
 ### 07_projects/
 Practical applications and full projects:
@@ -75,10 +75,7 @@ Coding challenges and exercises:
 * **Loan Validator** - Logic-based validation
 * **Logic Challenges** - Problem-solving exercises
 
-### 09_notes/
-Study materials and summaries for each topic
-
-## 🛠️ Technologies & Tools
+## Technologies & Tools
 
 * **Language:** Python 3.7+
 * **Paradigm:** Multi-paradigm (Procedural & Object-Oriented Programming)
@@ -86,16 +83,15 @@ Study materials and summaries for each topic
 * **IDE:** Visual Studio Code
 * **Version Control:** Git
 
-## 🚀 Getting Started
+## Getting Started
 
 1. Clone or download this repository
 2. Start with the `01_basics/` directory
 3. Progress through each section sequentially
 4. Complete exercises in each module's `exercises/` folder
 5. Work through projects in `07_projects/`
-6. Reference notes in `09_notes/` while studying
 
-## 📚 How to Use
+## How to Use
 
 Each Python file contains:
 - Comments explaining the topic
@@ -107,11 +103,11 @@ To run any script:
 python <filepath>/<filename>.py
 ```
 
-## 👨‍💻 Author
+## Author
 
 **Isaque Lucio**
-3rd Semester Analysis and Systems Development Student | Aspiring Back-end Developer
+4th Semester Analysis and Systems Development Student | Aspiring Back-end & DevOps Developer
 
-## 📝 License
+## License
 
 This project is open source and available under the MIT License.
